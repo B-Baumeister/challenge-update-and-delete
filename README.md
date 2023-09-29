@@ -59,7 +59,7 @@ Switch back to `./components/ProductForm/index.js` and
 - receive the `onSubmit` prop.
 - use `onSubmit` instead of `handleSubmit` in the form
 
-> 💡 Bonus: Pass another new prop to the `ProductForm` component to set the heading of the form dynamically ("Add a new Fish" is not a proper headline when updating the product, right?).
+........> 💡 Bonus: Pass another new prop to the `ProductForm` component to set the heading of the form dynamically ("Add a new Fish" is not a proper headline when updating the product, right?).
 
 #### Send a `PUT` request
 
@@ -76,7 +76,7 @@ Below this code, create a `handleEditProduct()` function:
 - it starts a "PUT" request with `fetch` (hint: this fetch is similar to the "POST" fetch we perform to create products)
 - uses `mutate` after a successful fetch to update the product detail page.
 
-We need to update the content of our Product component to display the edit form:
+xxxxxxxxxxxxxxxxWe need to update the content of our Product component to display the edit form:
 
 - Create a state called `isEditMode` and initialize it with `false`.
 - In the return statement, add a `<button>` with

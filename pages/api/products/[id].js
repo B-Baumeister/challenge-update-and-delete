@@ -1,5 +1,5 @@
-import dbConnect from "../../../db/connect";
 import Product from "../../../db/models/Product";
+import dbConnect from "../../../db/connect";
 
 export default async function handler(request, response) {
   await dbConnect();
@@ -13,5 +13,12 @@ export default async function handler(request, response) {
     }
 
     response.status(200).json(product);
+  }
+  if (request.method === "PUT") {
+    const updatedProduct = request.body;
+    await Product.findByIdAndUpdate(id, updatedProduct);
+    // Find the joke by its ID and update the content that is part of the request body!
+    response.status(200).json({ status: `Product successfully updated!` });
+    // If successful, you'll receive an OK status code.
   }
 }
