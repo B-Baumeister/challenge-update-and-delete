@@ -17,6 +17,7 @@ export default function Product() {
 
   async function handleEditProduct(event) {
     event.preventDefault();
+
     const formData = new FormData(event.target);
     const productData = Object.fromEntries(formData);
 
@@ -32,24 +33,18 @@ export default function Product() {
       mutate();
     }
 
-    if (isLoading) {
-      return <h1>Loading...</h1>;
-    }
+    // if (isLoading) {
+    //   return <h1>Loading...</h1>;
+    // }
 
-    if (!data) {
-      return;
-    }
+    // if (!data) {
+    //   return;
+    // }
 
     return (
       <>
         {/* <ProductForm (isEditMode && ... ? handleEditProduct=onSubmit : null) /> */}
-        {isEditMode && (
-          <ProductForm
-            onSubmit={handleEditProduct}
-            isEditing={isEditMode}
-            fishData={data}
-          />
-        )}
+
         <ProductCard>
           <h2>{data.name}</h2>
           <p>Description: {data.description}</p>
@@ -63,7 +58,13 @@ export default function Product() {
           >
             {isEditMode ? "stop editing" : "Edit fish"}
           </StyledButton>
-
+          {isEditMode && (
+            <ProductForm
+              onSubmit={handleEditProduct}
+              isEditing={isEditMode}
+              fishData={data}
+            />
+          )}
           <StyledLink href="/">Back to all</StyledLink>
         </ProductCard>
       </>

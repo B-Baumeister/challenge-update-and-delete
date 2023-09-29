@@ -76,7 +76,8 @@ Below this code, create a `handleEditProduct()` function:
 - it starts a "PUT" request with `fetch` (hint: this fetch is similar to the "POST" fetch we perform to create products)
 - uses `mutate` after a successful fetch to update the product detail page.
 
-xxxxxxxxxxxxxxxxWe need to update the content of our Product component to display the edit form:
+xxxxxxxxxxxxxxxx
+We need to update the content of our Product component to display the edit form:
 
 - Create a state called `isEditMode` and initialize it with `false`.
 - In the return statement, add a `<button>` with
