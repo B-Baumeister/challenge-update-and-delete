@@ -33,41 +33,34 @@ export default function Product() {
       mutate();
     }
 
-    // if (isLoading) {
-    //   return <h1>Loading...</h1>;
-    // }
+    if (isLoading) {
+      return <h1>Loading...</h1>;
+    }
 
-    // if (!data) {
-    //   return;
-    // }
+    if (!data) {
+      return;
+    }
 
     return (
-      <>
-        {/* <ProductForm (isEditMode && ... ? handleEditProduct=onSubmit : null) /> */}
-
-        <ProductCard>
-          <h2>{data.name}</h2>
-          <p>Description: {data.description}</p>
-          <p>
-            Price: {data.price} {data.currency}
-          </p>
-          {data.reviews.length > 0 && <Comments reviews={data.reviews} />}
-          <StyledButton
-            type="button"
-            onClick={() => setIsEditMode(!isEditMode)}
-          >
-            {isEditMode ? "stop editing" : "Edit fish"}
-          </StyledButton>
-          {isEditMode && (
-            <ProductForm
-              onSubmit={handleEditProduct}
-              isEditing={isEditMode}
-              fishData={data}
-            />
-          )}
-          <StyledLink href="/">Back to all</StyledLink>
-        </ProductCard>
-      </>
+      <ProductCard>
+        <h2>{data.name}</h2>
+        <p>Description: {data.description}</p>
+        <p>
+          Price: {data.price} {data.currency}
+        </p>
+        {data.reviews.length > 0 && <Comments reviews={data.reviews} />}
+        <StyledButton type="button" onClick={() => setIsEditMode(!isEditMode)}>
+          {isEditMode ? "stop editing" : "Edit fish"}
+        </StyledButton>
+        {isEditMode && (
+          <ProductForm
+            onSubmit={handleEditProduct}
+            isEditing={isEditMode}
+            fishData={data}
+          />
+        )}
+        <StyledLink href="/">Back to all</StyledLink>
+      </ProductCard>
     );
   }
 }
